@@ -5,9 +5,9 @@ This code pattern will guide you through installing Keras and Tensorflow, downlo
 
 info about keras, tensorflow and generating text
 
-The original yelp data used in this code pattern can be found here: https://www.kaggle.com/c/yelp-recruiting/data as well as in this repository under data/. 
+The original yelp data used in this code pattern can be found [here](https://www.kaggle.com/c/yelp-recruiting/data) as well as in this repository under [data/](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/data). 
 
-![](doc/source/images/Architecture.png)
+![](doc/source/images/architecture.png)
 
 ## Flow
 
