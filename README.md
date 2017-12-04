@@ -81,8 +81,10 @@ Use a final _Analyze the results_ or _Conclusion_ step above, plus sample output
 # Links
 
 * [Create Data Science Experience Notebooks](https://datascience.ibm.com/docs/content/analyze-data/creating-notebooks.html)
-* [Bureau of Labor Statistics](https://www.bls.gov/cex/)
-* [Food Environment Atlas](https://www.ers.usda.gov/data-products/food-environment-atlas/data-access-and-documentation-downloads/)
+* [Jupyter Notebook](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [Keras](https://keras.io/): The Python Deep Learning library.
+* [Tensorflow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence.
+
 
 # Learn more
 
