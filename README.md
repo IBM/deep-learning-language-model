@@ -3,7 +3,8 @@ A code pattern focusing on how to train a machine learning language model while 
 
 This code pattern will guide you through installing Keras and Tensorflow, downloading yelp data and training a language model using recurrent neural networks, or RNNs, to generate text.
 
-info about keras, tensorflow and generating text
+Using RNNs to generate information is a hot area of research and has seemingly boundless amounts of areas it can be applied to. One of these areas is text generation. Training a model to generate reviews tows the line between dangerous and productive as fake reviews are a very real problem for companies such as amazon and yelp, who rely on reviews to vouch for their products and businesses that are featured. As of writing this, it is very easy for businesses to pay for fake, positive reviews, which ultimately end up elevating their sales and revenue, but unfortunately this leads users to places and products fradulently and can potentially lead to someone having a negative experience or worse. In order to combat these abuses and illegal activity, we must first understand how to generate fake reviews and build a dataset with them. This approach follows the University of Chicago's paper [Automated Crowdturfing Attacks and Defenses in
+Online Review Systems](https://arxiv.org/pdf/1708.08151.pdf).
 
 The original yelp data used in this code pattern can be found [here](https://www.kaggle.com/c/yelp-recruiting/data) as well as in this repository under [data/](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/data). 
 
