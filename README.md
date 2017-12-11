@@ -49,9 +49,9 @@ TBD
     For Mac users, ```pip install tensorflow-gpu``` will install the gpu version, which is what I used on my server.
     For Keras, you can go to this link: https://keras.io/#getting-started-30-seconds-to-keras. 
     To install you can either sudo pip install or pip install keras. On the other hand, you can use git:
-    ```git clone https://github.com/fchollet/keras.git```
-    ```cd keras
-    sudo python setup.py install```
+    ``` git clone https://github.com/fchollet/keras.git ```
+    ``` cd keras ```
+    ``` sudo python setup.py install ```
 
 # Steps
 
@@ -64,12 +64,15 @@ This pattern runs through the steps below. Check out the notebook for the code!
 
 1. Start a jupyter notebook.
 
-       From here you can choose to work in terminal while using python or download jupyter notebook to follow along:
+* From here you can choose to work in terminal while using python or download jupyter notebook to follow along:
        ```pip install jupyter notebook```
-       The notebook containing the code for this pattern is in the repository: 
-       Once that is installed you can enter ```jupyter notebook``` in your terminal and a notebook should pop up in your browser.
-       If a notebook was not created, go to the url given in your terminal.
-   
+* Once that is installed you can enter ```jupyter notebook``` in your terminal and a notebook should pop up in your browser.
+* If a notebook was did not automatically pop up, go to the url given in your terminal.
+* The notebook containing the code for this pattern is in this [repository](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/notebooks). 
+* Download the notebooks, data and files into the folder you started jupyter notebook in. Once you do that it should appear in the browser. Click on it to open it up.
+
+![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.10.50%20PM.png)
+
 2. Run the notebook.
  
 When a notebook is executed, what is actually happening is that each code cell in
@@ -96,17 +99,23 @@ There are several ways to execute the code cells in your notebook:
     panel. Here you can schedule your notebook to be executed once at some future
     time, or repeatedly at your specified interval.
     
+![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)    
+    
 3. Train a model.
 
+_See the notebook for further explanation on what is happening here._
+* For this Code Pattern you'll need to go into the file where you downloaded everything.
+* Make sure you have everything in the same folder.
+* Now type ``` python transfer_learn.py ``` and push enter.
+* The model should be running and generating text based on the yelp data it was given.
 
 4. Analyze the result.
 
+As you can see in the image below, you should expect to see text being generated with different diversities and then saved back into the weights. By this output you can see what different outputs are based on different diversities of text (more diverse vs less or more repetitive).
+
 ![](doc/source/images/Screen%20Shot%202017-12-07%20at%2011.16.22%20AM.png)
 
-## Sample output
-
-Use a final _Analyze the results_ or _Conclusion_ step above, plus sample output to wrap up the code pattern for a developer running it and also for people that are only going to read the README. Sample output format will vary depending on the code pattern technology used.
-
+Congrats! Now you've learned how to generate text based on the data you've given it. Look out for the next Code Pattern which takes this generated data and learns how to detect the fake text vs the real, original text.
 
 # Links
 
