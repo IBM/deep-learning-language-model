@@ -33,23 +33,15 @@ The original yelp data used in this code pattern can be found [here](https://www
 # Watch the Video
 TBD
 
-# Steps
 
-This pattern runs through the steps below. Check out the notebook for the code!
+# Prerequisites
 
-    1. Download yelp data.
-    2. Download and install Keras and Tensorflow (and their dependencies).
-    3. Start a jupyter notebook.
-    4. Follow the notebook provided to run a language model to generate text.
-    5. Learn where else this RNN model can be applied.
+    1. Have a server you can use.
+    2. Install libraries, keras and tensorflow.
+    
+1. Have a server you can use.
 
-1. Download yelp data.
-
-Go to the kaggle competition link here: https://www.kaggle.com/c/yelp-recruiting/data and download your data locally or on a server.
-
-2. Download and install Keras and Tensorflow (and their dependencies).
-
-First you must make sure you have the prerequisits:
+2. Install libraries, keras and tensorflow.
 
     Have the python version you want and pip installed.
     Install numpy.
@@ -61,8 +53,16 @@ First you must make sure you have the prerequisits:
     ```cd keras
     sudo python setup.py install```
 
-    
-3. Start a jupyter notebook.
+# Steps
+
+This pattern runs through the steps below. Check out the notebook for the code!
+
+    1. Start a jupyter notebook.
+    2. Run the notebook.
+    3. Train a model.
+    4. Analyze the result.
+
+1. Start a jupyter notebook.
 
        From here you can choose to work in terminal while using python or download jupyter notebook to follow along:
        ```pip install jupyter notebook```
@@ -70,9 +70,38 @@ First you must make sure you have the prerequisits:
        Once that is installed you can enter ```jupyter notebook``` in your terminal and a notebook should pop up in your browser.
        If a notebook was not created, go to the url given in your terminal.
    
-4. Follow the notebook provided to run a language model to generate text.
-5. Learn where else this RNN model can be applied.
+2. Run the notebook.
+ 
+When a notebook is executed, what is actually happening is that each code cell in
+the notebook is executed, in order, from top to bottom.
 
+Each code cell is selectable and is preceded by a tag in the left margin. The tag
+format is `In [x]:`. Depending on the state of the notebook, the `x` can be:
+
+* A blank, this indicates that the cell has never been executed.
+* A number, this number represents the relative order this code step was executed.
+* A `*`, this indicates that the cell is currently executing.
+
+There are several ways to execute the code cells in your notebook:
+
+* One cell at a time.
+  * Select the cell, and then press the `Play` button in the toolbar.
+* Batch mode, in sequential order.
+  * From the `Cell` menu bar, there are several options available. For example, you
+    can `Run All` cells in your notebook, or you can `Run All Below`, that will
+    start executing from the first cell under the currently selected cell, and then
+    continue executing all cells that follow.
+* At a scheduled time.
+  * Press the `Schedule` button located in the top right section of your notebook
+    panel. Here you can schedule your notebook to be executed once at some future
+    time, or repeatedly at your specified interval.
+    
+3. Train a model.
+
+
+4. Analyze the result.
+
+![](doc/source/images/Screen%20Shot%202017-12-07%20at%2011.16.22%20AM.png)
 
 ## Sample output
 
