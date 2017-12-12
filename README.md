@@ -50,10 +50,15 @@ TBD
 
     Have the python version you want and pip installed.
     Install numpy.
-    Install Tensorflow. Go here to follow the directions if you are not on a MacOS: https://www.tensorflow.org/install/
+    Install Pandas.
+    Install zipfile.
+    Install json.
+    Install Tensorflow. 
+    Go [here](https://www.tensorflow.org/install/) to follow the directions if you are not on a MacOS.
     For Mac users, ```pip install tensorflow-gpu``` will install the gpu version, which is what I used on my server.
-    For Keras, you can go to this link: https://keras.io/#getting-started-30-seconds-to-keras. 
-    To install you can either sudo pip install or pip install keras. On the other hand, you can use git:
+    For Keras, you can go to [this](https://keras.io/#getting-started-30-seconds-to-keras) link. 
+    To install you can either sudo pip install or pip install keras. Or you can use git:
+    
     ``` git clone https://github.com/fchollet/keras.git ```
     ``` cd keras ```
     ``` sudo python setup.py install ```
