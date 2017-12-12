@@ -1,5 +1,5 @@
 ## Training a Deep Learning Language Model Using Keras and Tensorflow
-A Code Pattern focusing on how to train a machine learning language model while using Keras and Tensorflow.
+_A Code Pattern focusing on how to train a machine learning language model while using Keras and Tensorflow._
 
 This Code Pattern will guide you through installing Keras and Tensorflow, downloading yelp data and training a language model using recurrent neural networks, or RNNs, to generate text.
 
