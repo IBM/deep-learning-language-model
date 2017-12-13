@@ -15,10 +15,6 @@ If you've clicked on this Code Pattern I imagine you range from a deep learning 
 
 ![](doc/source/images/architecture.png)
 
-![](doc/source/images/architecture2.png)
-
-![](doc/source/images/architecture3.png)
-
 ## Flow
 
 1. Download the yelp data.
@@ -45,15 +41,15 @@ TBD
 
 # Prerequisites
 
-    1. Have a server you can use.
+    1. Have python 3.0 or above installed.
     2. Install libraries, keras and tensorflow.
     
-1. Have a server you can use.
+1. Have python 3.0 or above installed.
 
 2. Install libraries, keras and tensorflow.
 
-    Have the python version you want and pip installed.
-    Install numpy.
+    Have pip installed.
+    Install SciPy and NumPy.
     Install Pandas.
     Install zipfile.
     Install json.
@@ -61,7 +57,8 @@ TBD
     Go [here](https://www.tensorflow.org/install/) to follow the directions if you are not on a MacOS.
     For Mac users, ```pip install tensorflow-gpu``` will install the gpu version, which is what I used on my server.
     For Keras, you can go to [this](https://keras.io/#getting-started-30-seconds-to-keras) link. 
-    To install you can either sudo pip install or pip install keras. Or you can use git:
+    You can also just ```pip install keras```.
+    Or you can use git:
     
     ``` git clone https://github.com/fchollet/keras.git ```
     ``` cd keras ```
@@ -119,7 +116,7 @@ There are several ways to execute the code cells in your notebook:
 
 * Make sure you collect all of the files into the same folder. Then run transfer_learn.py.
 
-To help understand what we're doing here, in the file transfer_learn.py we use a keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition though in this particular model, we generate multiple diversities which we can compare to one anmother to see which works best for us. We then train the model and save our weights into transfer_weights. After executing you should see tensorflow start up and then various epochs running on your screen followed by generated text.
+To help understand what we're doing here, in the file transfer_learn.py we use a keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition though in this particular model, we generate multiple diversities which we can compare to one anmother to see which works best for us. You'll also see the use of enumerate in the transfer_learn.py which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into transfer_weights. After executing you should see tensorflow start up and then various epochs running on your screen followed by generated text.
 
 _See the notebook for further detail on what else you can do with the language model._
 * For this Code Pattern you'll need to go into the file where you downloaded everything (should be on your server).
@@ -127,6 +124,14 @@ _See the notebook for further detail on what else you can do with the language m
 * Now type ``` python transfer_learn.py ``` and push enter.
 * The model should be running and generating text based on the yelp data it was given.
 * To learn more you can dive into the Yelp_Data.ipynb or open transfer_learn.ipynb to figure out how this language model works, in a more hands on way.
+
+![](doc/source/images/architecture2.png)
+
+As you can see in the diagram above, the inputed text is sent through several layers of the LSTM model and then sent through a dense layer followed by a softmax layer. This considers information and iterates over the data at a character level.
+
+![](doc/source/images/architecture3.png)
+
+This model takes inputed text and 0s and outputs generated text.
 
 4. Analyze the result.
 
