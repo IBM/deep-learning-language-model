@@ -15,6 +15,10 @@ If you've clicked on this Code Pattern I imagine you range from a deep learning 
 
 ![](doc/source/images/architecture.png)
 
+![](doc/source/images/architecture2.png)
+
+![](doc/source/images/architecture3.png)
+
 ## Flow
 
 1. Download the yelp data.
