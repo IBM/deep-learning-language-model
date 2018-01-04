@@ -45,13 +45,21 @@ TBD
     
 1. Have python 3.0 or above installed.
 
-2. Install libraries, keras and tensorflow.
+2. Have required libraries installed. 
 
-    * Have pip installed.
-    * Install SciPy and NumPy.
-    * Install Pandas.
-    * Install zipfile.
-    * Install json.
+    * pip.
+      For a mac pip comes installed when you install python. Example:
+      ```brew install python```
+      Otherwise you can try:
+      ```sudo easy install pip```
+    * NumPy and SciPy. Once pip is installed. You can use it to install NumPy and SciPy (and gfortran which is needed to compile SciPy):
+      ```pip install numpy```
+      ```brew install gfortran```
+      ```pip install scipy```
+    * Pandas.
+      ```pip install pandas```
+    * zipfile. For python 3.6:
+      ```pip install zipfile36```
 
 
 # Steps
@@ -60,8 +68,9 @@ This pattern runs through the steps below. Check out the notebook for the code!
 
     1. Download and install Keras and Tensorflow.
     2. Download the yelp data.
-    3. Train a model.
-    4. Analyze the result.
+    3. Download the code.
+    4. Train a model.
+    5. Analyze the result.
 
 1. Download and install Keras and Tensorflow.
 
@@ -85,10 +94,18 @@ This pattern runs through the steps below. Check out the notebook for the code!
 2. Download the yelp data. 
 
 * This example will use the [yelp_100_3.txt](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/blob/master/data/yelp_100_3.txt), but once you feel familiar enough you can apply it to the entire [kaggle dataset](https://www.kaggle.com/c/yelp-recruiting/data).
+
+What this data allows us to do is consider authentic yelp reviews and use them as an input to our language model. That means our model will iterate over the reviews given to generate similar yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway.
     
-![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)    
+![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)  
+
+3. Download the code. 
+
+* Find the code files in the [code folder](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/code). Make sure you download the data and the code files in the same folder.
+
+What we're doing here is defining what characters and punctuation are so that we can form correct words and sentences and consider certain factors and their relevance to the English language. 
     
-3. Train a model.
+4. Train a model.
 
 * Make sure you collect all of the files that you downloaded into the same folder. 
 * Then run transfer_learn.py.
