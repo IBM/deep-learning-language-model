@@ -109,7 +109,7 @@ What this data allows us to do is consider authentic yelp reviews and use them a
 
 3. Download the code. 
 
-* Find the code files in the [code folder](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/code). Make sure you download the data and the code files in the same folder.
+* Find the code files in the [code folder](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/code). Make sure you download the data and the code files in the same folder. You need to also download the weights from [here](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8) into the exact same folder you have the code and the data.
 
 What we're doing here is defining what characters and punctuation are so that we can form correct words and sentences and consider certain factors and their relevance to the English language. The weights on the other hand are what allow us to fine tune the model and adjust for accuracy. You won't have to worry about adjusting the weights here but the output will be saved into the weight file that you download from the link provided.
     
