@@ -2,7 +2,7 @@
 
 - Credit goes to [Madison Myers](https://github.com/MadisonJMyers) for her implementation.
 
-Data Credits
+# Data Credits
 
 The data provided in were collected using kaggle.
 
