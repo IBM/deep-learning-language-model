@@ -41,9 +41,6 @@ TBD
 
 
 # Prerequisites
-
-    1. Have python 3.0 or above installed.
-    2. Install libraries, keras and tensorflow.
     
 1. Have python 3.0 or above installed.
 
