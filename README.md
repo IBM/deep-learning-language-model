@@ -79,13 +79,13 @@ Coming Soon!
 
 This pattern runs through the steps below. Check out the [notebook](code/transfer_learn.ipynb) for the code!
 
-1. [Download and install Keras and TensorFlow](#1-download-and-install-keras-and-tensorflow)
+1. [Download and install TensorFlow and Keras](#1-download-and-install-tensorflow-and-keras)
 2. [Download the Yelp dataset](#2-download-the-yelp-dataset)
 3. [Download the code](#3-download-the-code)
 4. [Train a model](#4-train-a-model)
 5. [Analyze the results](#5-analyze-the-results)
 
-## 1. Download and install Tensor Flow and Keras
+## 1. Download and install TensorFlow and Keras
 
 * Install TensorFlow.
 
