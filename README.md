@@ -103,15 +103,12 @@ This pattern runs through the steps below. Check out the [notebook](code/transfe
     sudo python setup.py install 
     ```
 
-![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.10.50%20PM.png)
-
 ## 2. Download the Yelp dataset
 
 This Code Pattern will use a dataset from Kaggle about [Yelp Reviews](https://www.kaggle.com/c/yelp-recruiting/data), specifically we will be used a portion of that dataset, [yelp_100_3.txt](data/yelp_100_3.txt). Once the reader feels  familiar enough with the notebook, they can use the entire dataset.
 
 This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway.
     
-![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)  
 
 ## 3. Download the code
 
@@ -124,9 +121,11 @@ Within this set are two text files, a notebook and weights. The two text files d
 ## 4. Train a model
 
 * Make sure you collect all of the files that you downloaded into the same folder. 
-* Run [`transfer_learn.ipynb`](code/transfer_learn.ipynb) by running the cell with the code in it.
+* Run [`transfer_learn.ipynb`](code/transfer_learn.ipynb) by running the cell with the code in it (below).
 * Push enter.
 * Once you've executed you should see TensorFlow start up and then various epochs running on your screen followed by generated text with increasing diversities.
+
+![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)  
 
 To help understand what's going on here, in the file [transfer_learn.ipynb](code/transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`, which can be found in this repo. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
 
