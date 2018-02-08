@@ -1,13 +1,12 @@
 ## Training a Deep Learning Language Model Using Keras and Tensorflow
-_A Code Pattern focusing on how to train a machine learning language model while using Keras and Tensorflow._
 
 This Code Pattern will guide you through installing Keras and Tensorflow, downloading data of Yelp reviews and training a language model using recurrent neural networks, or RNNs, to generate text.
 
-Using deep learning to generate information is a hot area of research and experimentation. In particular, the RNN deep learning model approach has seemingly boundless amounts of areas it can be applied to, whether it be to solutions to current problems or applications in budding future technologies. One of these areas of application is text generation, which is what this Code Pattern introduces. Text generation is used in language translation, machine translation and spell correction. These are all created through something called a language model. This Code Pattern runs through exactly that: a language model using an long short term memory (LSTM) RNN. For some context, RNNs use networks with hidden layers of memory to predict the next step using the highest probability. Unlike Convolutional Neural Networks (CNNs) which use forward propagation, or rather, move forward through its pipeline, RNNs utilize backpropogation, or circling back through the pipeline to make use of the "memory" mentioned above. By doing this, RNNs can use the text inputed to learn how to generate the next letters or characters as its output. The output then goes on to form a word, which eventually ends up as a collection of words, or sentences and paragraphs. The LSTM part of the model allows you to build an even bigger RNN model with improved learning of long-term dependencies, or better memory. This means an improved performance for those words and sentences we're generating!
+Using deep learning to generate information is a hot area of research and experimentation. In particular, the RNN deep learning model approach has seemingly boundless amounts of areas it can be applied to, whether it be to solutions to current problems or applications in budding future technologies. One of these areas of application is text generation, which is what this Code Pattern introduces. Text generation is used in language translation, machine translation and spell correction. These are all created through something called a language model. This Code Pattern runs through exactly that: a language model using a Long Short Term Memory (LSTM) RNN. For some context, RNNs use networks with hidden layers of memory to predict the next step using the highest probability. Unlike Convolutional Neural Networks (CNNs) which use forward propagation, or rather, move forward through its pipeline, RNNs utilize backpropogation, or circling back through the pipeline to make use of the "memory" mentioned above. By doing this, RNNs can use the text inputed to learn how to generate the next letters or characters as its output. The output then goes on to form a word, which eventually ends up as a collection of words, or sentences and paragraphs. The LSTM part of the model allows you to build an even bigger RNN model with improved learning of long-term dependencies, or better memory. This means an improved performance for those words and sentences we're generating!
 
-This model is relevant as text generation is increasingly in demand to solve translation, spell and review problems across several industries. In particular, fighting fake reviews plays a big role in this area of research. Fake reviews are a very real problem for companies such as Amazon and Yelp, who rely on genuine reviews from users to vouch for their products and businesses which are featured on their sites. As of writing this, it is very easy for businesses to pay for fake, positive reviews, which ultimately end up elevating their sales and revenue. It is equally as easy to generate negative reviews for competing businesses. Unfortunately this leads users to places and products fradulently and can potentially lead to someone having a negative experience or worse. In order to combat these abuses and illegal activity, text generation can be used to detect what a review looks like when it is generated versus a genuine review written by an authentic user. This Code Pattern walks you how do create this text generation at a high level. We will run through how to approach the problem with a small portion of Yelp review data, but afterwards you can apply it to a much larger set and test what output you get!
+This model is relevant as text generation is increasingly in demand to solve translation, spell and review problems across several industries. In particular, fighting fake reviews plays a big role in this area of research. Fake reviews are a very real problem for companies such as Amazon and Yelp, who rely on genuine reviews from users to vouch for their products and businesses which are featured on their sites. As of writing this, it is very easy for businesses to pay for fake, positive reviews, which ultimately end up elevating their sales and revenue. It is equally as easy to generate negative reviews for competing businesses. Unfortunately this leads users to places and products fradulently and can potentially lead to someone having a negative experience or worse. In order to combat these abuses and illegal activity, text generation can be used to detect what a review looks like when it is generated versus a genuine review written by an authentic user. This Code Pattern walks you through the steps to create this text generation at a high level. We will run through how to approach the problem with a small portion of Yelp review data, but afterwards you can apply it to a much larger set and test what output you get!
 
-The original yelp data used in this Code Pattern can be found [on Kaggle](https://www.kaggle.com/c/yelp-recruiting/data) as well as in this repository in the [data](data) folder.
+The original yelp data used in this Code Pattern can be found on [Kaggle](https://www.kaggle.com/c/yelp-recruiting/data) as well as in th [data](data) folder of this repository.
 
 ### But what is Keras and Tensorflow?
 
@@ -20,7 +19,7 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 ## Flow
 
 1. Download and install Keras, Tensorflow and their prerequisites.
-2. Download the yelp data. This example will use the [yelp_100_3.txt](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/blob/master/data/yelp_100_3.txt), but once you feel familiar enough you can apply it to the entire [kaggle dataset](https://www.kaggle.com/c/yelp-recruiting/data).
+2. Download the yelp data. This example will use a small sample of data found in [yelp_100_3.txt](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/blob/master/data/yelp_100_3.txt), but once you feel familiar enough you can apply it to the entire [kaggle dataset](https://www.kaggle.com/c/yelp-recruiting/data).
 3. Download the all of the files in the [code folder](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/code) (make sure the data and the files are in the same folder).
 4. Train a language model to generate text and run it.
 5. Analyze the result.
@@ -49,7 +48,7 @@ Coming Soon!
     * [pip](https://pip.pypa.io/en/stable/installing/) (to install Python libraries)
     * [gfortran](https://gcc.gnu.org/wiki/GFortranBinaries) (to compile SciPy)
     
-        * For a mac pip comes installed when you install python. Example:
+        * For a mac, pip comes installed when you install python. Example:
 
         ```
         brew install python
@@ -86,7 +85,7 @@ This pattern runs through the steps below. Check out the [notebook](code/transfe
 4. [Train a model](#4-train-a-model)
 5. [Analyze the results](#5-analyze-the-results)
 
-## 1. Download and install Keras and TensorFlow
+## 1. Download and install Tensor Flow and Keras
 
 * Install TensorFlow.
 
@@ -108,7 +107,7 @@ This pattern runs through the steps below. Check out the [notebook](code/transfe
 
 ## 2. Download the Yelp dataset
 
-This Code Pattern will use a dataset from Kaggle about [Yelp Reviews](https://www.kaggle.com/c/yelp-recruiting/data), specifically we will be used a portion of that dataset, [yelp_100_3.txt](data/yelp_100_3.txt). Once the reader is feels familiar enough with the notebook, they can use the entire dataset.
+This Code Pattern will use a dataset from Kaggle about [Yelp Reviews](https://www.kaggle.com/c/yelp-recruiting/data), specifically we will be used a portion of that dataset, [yelp_100_3.txt](data/yelp_100_3.txt). Once the reader feels  familiar enough with the notebook, they can use the entire dataset.
 
 This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway.
     
@@ -120,7 +119,7 @@ This data allows us to use authentic Yelp reviews as input to our language model
 
 * Download the [transfer weights](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8) into the same folder the code and the data live.
 
-Within this set are two text files, a notebook and weights. The two text files define what letters and punctuation are (defined in the [indices_char.txt](code/indices_char.txt) and the [char_indices.txt](code/char_indices.txt) so that we can form correct words and sentences with the model we build in the [python notebook](code/transfer_learn.ipynb). The model we build in the notebook then considers certain features and their relevance to the English language and how those features contribute to building reviews. In addition to these three code pieces, there are also weights which should be saved as [`transfer_weights`](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8). The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to transfer_weights after it runs. Now let's get to training the model!
+Within this set are two text files, a notebook and weights. The two text files define what letters and punctuation are (defined in the [indices_char.txt](code/indices_char.txt) and the [char_indices.txt](code/char_indices.txt)) so that we can form correct words and sentences with the model we build in the [python notebook](code/transfer_learn.ipynb). The model we build in the notebook then considers certain features and their relevance to the English language and how those features contribute to building reviews. In addition to these three code pieces, there are also weights which should be saved as [`transfer_weights`](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8). The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to transfer_weights after it runs. Now let's get to training the model!
     
 ## 4. Train a model
 
