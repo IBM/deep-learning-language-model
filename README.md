@@ -42,34 +42,39 @@ Coming Soon!
 
 # Prerequisites
     
-1. Have python 3.0 or above installed.
+1. Ensure [Python](https://www.python.org/) 3.0 or greater is installed.
 
-2. Have required libraries installed. 
+2. Ensure the following system libraries are installed:
 
-    * pip.
-      For a mac pip comes installed when you install python. Example:
-      ```
-      brew install python
-      ```
-      Otherwise you can try:
-      ```
-      sudo easy install pip
-      ```
-    * NumPy and SciPy. Once pip is installed. You can use it to install NumPy and SciPy (and gfortran which is needed to compile SciPy):
-      ```
-      pip install numpy
-      brew install gfortran
-      pip install scipy
-      ```
-    * Pandas.
-      ```
-      pip install pandas
-      ```
-    * zipfile. For python 3.6:
-      ```
-      pip install zipfile36
-      ```
+    * [pip](https://pip.pypa.io/en/stable/installing/) (to install Python libraries)
+    * [gfortran](https://gcc.gnu.org/wiki/GFortranBinaries) (to compile SciPy)
+    
+        * For a mac pip comes installed when you install python. Example:
 
+        ```
+        brew install python
+        brew install gfortran
+        ```
+
+        * For other operating systems, try:
+        ```
+        sudo easy install pip
+        sudo easy install gfortran
+        ```
+
+3. Ensure the following Python libraries are installed:
+
+    * [NumPy](http://www.numpy.org/)
+    * [SciPy](https://www.scipy.org/)
+    * [pandas](https://pandas.pydata.org/)
+    * [zipfile36](https://gitlab.com/takluyver/zipfile36)
+
+        ```
+        pip install numpy
+        pip install scipy
+        pip install pandas
+        pip install zipfile36
+        ```
 
 # Steps
 
