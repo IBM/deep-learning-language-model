@@ -7,7 +7,7 @@ Using deep learning to generate information is a hot area of research and experi
 
 This model is relevant as text generation is increasingly in demand to solve translation, spell and review problems across several industries. In particular, fighting fake reviews plays a big role in this area of research. Fake reviews are a very real problem for companies such as Amazon and Yelp, who rely on genuine reviews from users to vouch for their products and businesses which are featured on their sites. As of writing this, it is very easy for businesses to pay for fake, positive reviews, which ultimately end up elevating their sales and revenue. It is equally as easy to generate negative reviews for competing businesses. Unfortunately this leads users to places and products fradulently and can potentially lead to someone having a negative experience or worse. In order to combat these abuses and illegal activity, text generation can be used to detect what a review looks like when it is generated versus a genuine review written by an authentic user. This Code Pattern walks you how do create this text generation at a high level. We will run through how to approach the problem with a small portion of Yelp review data, but afterwards you can apply it to a much larger set and test what output you get!
 
-The original yelp data used in this Code Pattern can be found [here](https://www.kaggle.com/c/yelp-recruiting/data) as well as in this repository under [data/](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/data). 
+The original yelp data used in this Code Pattern can be found [on Kaggle](https://www.kaggle.com/c/yelp-recruiting/data) as well as in this repository in the [data](data) folder.
 
 ### But what is Keras and Tensorflow?
 
@@ -73,54 +73,58 @@ Coming Soon!
 
 # Steps
 
-This pattern runs through the steps below. Check out the notebook for the code!
+This pattern runs through the steps below. Check out the [notebook](code/transfer_learn.ipynb) for the code!
 
+1. [Download and install Keras and TensorFlow](#1-download-and-install-keras-and-tensorflow)
+2. [Download the Yelp dataset](#2-download-the-yelp-dataset)
+3. [Download the code](#3-download-the-code)
+4. [Train a model](#4-train-a-model)
+5. [Analyze the results](#5-analyze-the-results)
 
-1. Download and install Keras and Tensorflow.
+## 1. Download and install Keras and TensorFlow
 
-* Install Tensorflow. 
-    Go [here](https://www.tensorflow.org/install/) to follow the directions if you are not on a MacOS.
-    For Mac users, ```pip install tensorflow-gpu``` will install the gpu version, which is what I used on my server.
-* Install Keras. 
-    You can go to [this](https://keras.io/#getting-started-30-seconds-to-keras) link. 
-    You can also just:
+* Install TensorFlow.
+
+    See the [TensorFlow install documentation](https://www.tensorflow.org/install/) for directions on how to install TensorFlow on all supported operating systems. In most cases, a simple `pip install tensorflow` will install the TensorFlow python library.
+
+* Install Keras.
+
+    See the [Keras install documentation](https://keras.io/#getting-started-30-seconds-to-keras) for directions on how to install Keras on all supported operating systems. In most cases, a simple `pip install keras` will install the Keras python library.
+
+    Installing from source is also possible, but not recommended:
     
-        ```
-        pip install keras
-        ```
-        
-    Or you can use git:
-    
-        ``` 
-        git clone https://github.com/fchollet/keras.git
-        cd keras
-        sudo python setup.py install 
-        ```
+    ```
+    git clone https://github.com/fchollet/keras.git
+    cd keras
+    sudo python setup.py install 
+    ```
 
 ![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.10.50%20PM.png)
 
-2. Download the yelp data. 
+## 2. Download the Yelp dataset
 
-* This example will use the [yelp_100_3.txt](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/blob/master/data/yelp_100_3.txt), but once you feel familiar enough you can apply it to the entire [kaggle dataset](https://www.kaggle.com/c/yelp-recruiting/data).
+This Code Pattern will use a dataset from Kaggle about [Yelp Reviews](https://www.kaggle.com/c/yelp-recruiting/data), specifically we will be used a portion of that dataset, [yelp_100_3.txt](data/yelp_100_3.txt). Once the reader is feels familiar enough with the notebook, they can use the entire dataset.
 
-What this data allows us to do is consider authentic yelp reviews and use them as an input to our language model. That means our model will iterate over the reviews given to generate similar yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway.
+This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway.
     
 ![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.11.11%20PM.png)  
 
-3. Download the code. 
+## 3. Download the code
 
-* Find the code files in the [code folder](https://github.com/MadisonJMyers/Training-a-Deep-Learning-Language-Model-Using-Keras-and-Tensorflow/tree/master/code). Make sure you download the data and the code files in the same folder. You need to also download the weights from [here](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8) into the exact same folder you have the code and the data.
+* The [code folder](code) can be downloaded by cloning this repository (`git clone https://github.com/IBM/deep-learning-language-model`). Ensure the `data` and the `code` files are in the same folder.
 
-Within this set are two text files, a notebook and weights. The two text files define what letters and punctuation are (defined in the [indices_char.txt](https://github.com/MadisonJMyers/deep-learning-language-model/blob/master/code/indices_char.txt) and the [char_indices.txt](https://github.com/MadisonJMyers/deep-learning-language-model/blob/master/code/char_indices.txt) so that we can form correct words and sentences with the model we build in the [python notebook](https://github.com/MadisonJMyers/deep-learning-language-model/blob/master/code/transfer_learn.ipynb). The model we build in the notebook then considers certain features and their relevance to the English language and how those features contribute to building reviews. In addition to these three code pieces, there are also weights which should be saved as ["transfer_weights"](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8). The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to transfer_weights after it runs. Now let's get to training the model!
+* Download the [transfer weights](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8) into the same folder the code and the data live.
+
+Within this set are two text files, a notebook and weights. The two text files define what letters and punctuation are (defined in the [indices_char.txt](code/indices_char.txt) and the [char_indices.txt](code/char_indices.txt) so that we can form correct words and sentences with the model we build in the [python notebook](code/transfer_learn.ipynb). The model we build in the notebook then considers certain features and their relevance to the English language and how those features contribute to building reviews. In addition to these three code pieces, there are also weights which should be saved as [`transfer_weights`](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8). The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to transfer_weights after it runs. Now let's get to training the model!
     
-4. Train a model.
+## 4. Train a model
 
 * Make sure you collect all of the files that you downloaded into the same folder. 
-* Then run transfer_learn.ipynb by running the cell with the code in it.
+* Run [`transfer_learn.ipynb`](code/transfer_learn.ipynb) by running the cell with the code in it.
 * Push enter.
-* Once you've executed you should see tensorflow start up and then various epochs running on your screen followed by generated text with increasing diversities.
+* Once you've executed you should see TensorFlow start up and then various epochs running on your screen followed by generated text with increasing diversities.
 
-To help understand what's going on here, in the file transfer_learn.ipynb we use a keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate in the transfer_learn.py which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into transfer_weights, which can be found in this repo. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
+To help understand what's going on here, in the file [transfer_learn.ipynb](code/transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`, which can be found in this repo. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
 
 ![](doc/source/images/architecture2.png)
 
@@ -128,7 +132,7 @@ As you can see in the diagram above, the inputed text is sent through several la
 
 ![](doc/source/images/architecture3.png)
 
-4. Analyze the result.
+## 5. Analyze the results
 
 As you can see in the image below, you should expect to see text being generated with different diversities and then saved back into the weights. By this output you can see what different outputs are based on different diversities of text (more diverse vs less/more repetitive).
 
@@ -143,7 +147,6 @@ Congrats! Now you've learned how to generate text based on the data you've given
 * [Keras](https://keras.io/): The Python Deep Learning library.
 * [Tensorflow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence.
 
-
 # Learn more
 
 * **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
@@ -152,4 +155,5 @@ Congrats! Now you've learned how to generate text based on the data you've given
 * **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
 
 # License
+
 [Apache 2.0](LICENSE)
