@@ -129,6 +129,10 @@ The weights are what allow us to fine tune the model and increase accuracy as ou
 * Run [`transfer_learn.ipynb`](transfer_learn.ipynb) by running the cell with the code in it.
 * Once you've executed you should see TensorFlow start up and then various epochs running on your screen followed by generated text with increasing diversities.
 
+![](doc/source/images/notebook.png)
+
+> The figure above shows a user running the notebook locally
+
 To help understand what's going on here, in the file [transfer_learn.ipynb](transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`, which can be found in this repo. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
 
 ![](doc/source/images/architecture2.png)
@@ -141,7 +145,9 @@ As you can see in the diagram above, the inputed text is sent through several la
 
 As you can see in the image below, you should expect to see text being generated with different diversities and then saved back into the weights. By this output you can see what different outputs are based on different diversities of text (more diverse vs less/more repetitive).
 
-![](doc/source/images/Screen%20Shot%202017-12-07%20at%2011.16.22%20AM.png)
+![](doc/source/images/output.png)
+
+> The figure above shows the result of running the notebook, a generated Yelp! review.
 
 Congrats! Now you've learned how to generate text based on the data you've given it. Now you can challenge yourself by trying out the entire yelp dataset or other text data! You got this!
 
