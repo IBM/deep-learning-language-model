@@ -46,13 +46,13 @@ Coming Soon!
 2. Ensure the following system libraries are installed:
 
     * [pip](https://pip.pypa.io/en/stable/installing/) (to install Python libraries)
-    * [gfortran](https://gcc.gnu.org/wiki/GFortranBinaries) (to compile SciPy)
+    * [gcc](https://gcc.gnu.org/) (to compile SciPy)
     
         * For a mac, pip comes installed when you install python. Example:
 
         ```
         brew install python
-        brew install gfortran
+        brew install gcc
         ```
 
         * For other operating systems, try:
@@ -94,14 +94,6 @@ This pattern runs through the steps below. Check out the [notebook](code/transfe
 * Install Keras.
 
     See the [Keras install documentation](https://keras.io/#getting-started-30-seconds-to-keras) for directions on how to install Keras on all supported operating systems. In most cases, a simple `pip install keras` will install the Keras python library.
-
-    Installing from source is also possible, but not recommended:
-    
-    ```
-    git clone https://github.com/fchollet/keras.git
-    cd keras
-    sudo python setup.py install 
-    ```
 
 ![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.10.50%20PM.png)
 
