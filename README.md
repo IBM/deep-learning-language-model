@@ -67,12 +67,14 @@ Coming Soon!
     * [SciPy](https://www.scipy.org/)
     * [pandas](https://pandas.pydata.org/)
     * [zipfile36](https://gitlab.com/takluyver/zipfile36)
+    * [h5py](http://www.h5py.org/)
 
         ```
         pip install numpy
         pip install scipy
         pip install pandas
         pip install zipfile36
+        pip install h5py
         ```
 
 # Steps
