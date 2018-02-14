@@ -20,9 +20,8 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 
 1. Download and install Keras, Tensorflow and their prerequisites.
 2. Clone the repository.
-3. Download a model.
-4. Train a language model by running the notebook, this will generate new text.
-5. Analyze the results.
+3. Train a language model by running the notebook, this will generate new text.
+4. Analyze the results.
 
 ## Included components
 
@@ -83,9 +82,8 @@ This pattern runs through the steps below. Check out the [notebook](code/transfe
 
 1. [Download and install TensorFlow and Keras](#1-download-and-install-tensorflow-and-keras)
 2. [Clone the repository](#2-clone-the-repository)
-3. [Download a model](3-download-a-model)
-4. [Train a model](#4-train-a-model)
-5. [Analyze the results](#5-analyze-the-results)
+3. [Train a model](#3-train-a-model)
+4. [Analyze the results](#4-analyze-the-results)
 
 ## 1. Download and install TensorFlow and Keras
 
@@ -113,17 +111,14 @@ A few things to mention about the contents of the repository:
 * [transfer_learn.ipynb](transfer_learn.ipynb): This is the notebook we will be running.
 * [yelp_test_set.zip](yelp_test_set.zip): A complete data set that contains reviews from Yelp! from [Kaggle](https://www.kaggle.com/c/yelp-recruiting/data)
 * [yelp_100_3.txt](data/yelp_100_3.txt): A snippet of the above data set.
+* [transfer weights](transfer weights): A model that we will use as a basis for this exercise.
 * [indices_char.txt](indices_char.txt) and [char_indices.txt](char_indices.txt): These two text files define how letters and punctuation correspond to each other.
 
-This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway. The model we build in the notebook will consider certain features and their relevance to the English language and how those features contribute to building reviews. Once the reader feels familiar enough with the notebook, they can use the entire dataset.
+*A quick note about the test data:* This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway. The model we build in the notebook will consider certain features and their relevance to the English language and how those features contribute to building reviews. Once the reader feels familiar enough with the notebook, they can use the entire dataset.
 
-## 3. Download a model
+*A quick note about the `transfer weights` model:* The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to `transfer_weights` after it runs. Now let's get to training the model.
 
-* Download the [transfer weights](https://ibm.box.com/s/0ry6m3t68ygdi1dom8boko2h5wlywsr8) into the same folder as the rest of the content.
-
-The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to transfer_weights after it runs. Now let's get to training the model.
-
-## 4. Train a model
+## 3. Train a model
 
 * Make sure you collect all of the files that you downloaded into the same folder. 
 * Run [`transfer_learn.ipynb`](transfer_learn.ipynb) by running the cell with the code in it.
@@ -133,7 +128,7 @@ The weights are what allow us to fine tune the model and increase accuracy as ou
 
 > The figure above shows a user running the notebook locally
 
-To help understand what's going on here, in the file [transfer_learn.ipynb](transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our transfer_weights. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`, which can be found in this repo. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
+To help understand what's going on here, in the file [transfer_learn.ipynb](transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with categorical_crossentropy and begin by loading our `transfer_weights`. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
 
 ![](doc/source/images/architecture2.png)
 
@@ -141,7 +136,7 @@ As you can see in the diagram above, the inputed text is sent through several la
 
 ![](doc/source/images/architecture3.png)
 
-## 5. Analyze the results
+## 4. Analyze the results
 
 As you can see in the image below, you should expect to see text being generated with different diversities and then saved back into the weights. By this output you can see what different outputs are based on different diversities of text (more diverse vs less/more repetitive).
 
