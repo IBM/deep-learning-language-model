@@ -33,10 +33,6 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 * [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
 * [Python](https://www.python.org/): Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
-# Watch the Video
-Coming Soon!
-
-
 # Prerequisites
     
 1. Ensure [Python](https://www.python.org/) 3.0 or greater is installed.
