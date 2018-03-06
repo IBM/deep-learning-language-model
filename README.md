@@ -18,10 +18,9 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 
 ## Flow
 
-1. Download and install Keras, Tensorflow and their prerequisites.
-2. Clone the repository.
-3. Train a language model by running the notebook, this will generate new text.
-4. Analyze the results.
+1. After installing the prequisites, Keras and Tensorflow, the user executes the notebook.
+1. The training data is used to train a language model.
+1. New text is generated based on the model and returned to the user.
 
 ## Included components
 
