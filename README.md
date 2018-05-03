@@ -108,7 +108,7 @@ A few things to mention about the contents of the repository:
 * [transfer_learn.ipynb](transfer_learn.ipynb): This is the notebook we will be running.
 * [yelp_test_set.zip](yelp_test_set.zip): A complete data set that contains reviews from Yelp! from [Kaggle](https://www.kaggle.com/c/yelp-recruiting/data)
 * [yelp_100_3.txt](data/yelp_100_3.txt): A snippet of the above data set.
-* [transfer weights](transfer weights): A model that we will use as a basis for this exercise.
+* [transfer weights](transfer_weights): A model that we will use as a basis for this exercise.
 * [indices_char.txt](indices_char.txt) and [char_indices.txt](char_indices.txt): These two text files define how letters and punctuation correspond to each other.
 
 *A quick note about the test data:* This data allows us to use authentic Yelp reviews as input to our language model. This means that our model will iterate over the reviews and generate similar Yelp reviews. If a different dataset was used, like a novel by Hemingway, we would then generate text that was similar stylistically to Hemingway. The model we build in the notebook will consider certain features and their relevance to the English language and how those features contribute to building reviews. Once the reader feels familiar enough with the notebook, they can use the entire dataset.
