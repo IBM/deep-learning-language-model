@@ -1,3 +1,5 @@
+*Read this in other languages: [中国](README-cn.md).*
+
 ## Training a Deep Learning Language Model Using Keras and Tensorflow
 
 This Code Pattern will guide you through installing Keras and Tensorflow, downloading data of Yelp reviews and training a language model using recurrent neural networks, or RNNs, to generate text.
