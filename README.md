@@ -14,7 +14,7 @@ The original Yelp data used in this Code Pattern can be found on [Kaggle](https:
 
 ### But what is Keras and Tensorflow?
 
-If you've clicked on this Code Pattern I imagine you range from a deep learning intermediate to a beginner who's interested in learning more. Wherever you are on the spectrum, you probably think machine learning and deep learning are awesome (which I agree with) and have probably been exposed to some examples and terminology. You probably also understand some python and the fact that deep learning is a subset of machine learning (which is a subset of artificial intelligence as a whole). With those assumptions in mind, I can explain that Tensorflow is an open-source software library for machine learning, which allows you to keep track of all of your models and also see them with cool visualizations. 
+If you've clicked on this Code Pattern I imagine you range from a deep learning intermediate to a beginner who's interested in learning more. Wherever you are on the spectrum, you probably think machine learning and deep learning are awesome (which I agree with) and have probably been exposed to some examples and terminology. You probably also understand some python and the fact that deep learning is a subset of machine learning (which is a subset of artificial intelligence as a whole). With those assumptions in mind, I can explain that Tensorflow is an open-source software library for machine learning, which allows you to keep track of all of your models and also see them with cool visualizations.
 
 Keras is a deep learning library that you can use in conjunction with Tensorflow and several other deep learning libraries. Keras is very user-friendly in that it allows you to complete a model (for example using RNNs) with very few lines of code, which makes every data scientist's (including myself) life much easier! This project highlights exactly that feature with its relatively small amount of code. Keras also allows you to switch between libraries depending on what you're trying to do, saving you a great deal of headache and time. Let's get started shall we?
 
@@ -33,19 +33,19 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 
 ## Featured technologies
 
-* [Cloud](https://www.ibm.com/developerworks/learn/cloud/): Accessing computer and information technology resources through the Internet.
+* [Cloud](https://developer.ibm.com/depmodels/cloud/): Accessing computer and information technology resources through the Internet.
 * [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
 * [Python](https://www.python.org/): Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
 # Prerequisites
-    
+
 1. Ensure [Python](https://www.python.org/) 3.0 or greater is installed.
 
 2. Ensure the following system libraries are installed:
 
     * [pip](https://pip.pypa.io/en/stable/installing/) (to install Python libraries)
     * [gcc](https://gcc.gnu.org/) (to compile SciPy)
-    
+
         * For a mac, pip comes installed when you install python. Example:
 
         ```
@@ -61,11 +61,11 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 
 3. Ensure the following Python libraries are installed:
 
-    * [NumPy](http://www.numpy.org/)
+    * [NumPy](https://www.numpy.org/)
     * [SciPy](https://www.scipy.org/)
     * [pandas](https://pandas.pydata.org/)
     * [zipfile36](https://gitlab.com/takluyver/zipfile36)
-    * [h5py](http://www.h5py.org/)
+    * [h5py](https://www.h5py.org/)
 
         ```
         pip install numpy
@@ -77,7 +77,7 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 
 # Steps
 
-This pattern runs through the steps below. Check out the [notebook](code/transfer_learn.ipynb) for the code!
+This pattern runs through the steps below. Check out the [notebook](transfer_learn.ipynb) for the code!
 
 1. [Download and install TensorFlow and Keras](#1-download-and-install-tensorflow-and-keras)
 2. [Clone the repository](#2-clone-the-repository)
@@ -109,7 +109,7 @@ A few things to mention about the contents of the repository:
 
 * [transfer_learn.ipynb](transfer_learn.ipynb): This is the notebook we will be running.
 * [yelp_test_set.zip](yelp_test_set.zip): A complete data set that contains reviews from Yelp! from [Kaggle](https://www.kaggle.com/c/yelp-recruiting/data)
-* [yelp_100_3.txt](data/yelp_100_3.txt): A snippet of the above data set.
+* [yelp_100_3.txt](yelp_100_3.txt): A snippet of the above data set.
 * [transfer weights](transfer_weights): A model that we will use as a basis for this exercise.
 * [indices_char.txt](indices_char.txt) and [char_indices.txt](char_indices.txt): These two text files define how letters and punctuation correspond to each other.
 
@@ -119,7 +119,7 @@ A few things to mention about the contents of the repository:
 
 ## 3. Train a model
 
-* Make sure you collect all of the files that you downloaded into the same folder. 
+* Make sure you collect all of the files that you downloaded into the same folder.
 * Run [`transfer_learn.ipynb`](transfer_learn.ipynb) by running the cell with the code in it.
 * Once you've executed you should see TensorFlow start up and then various epochs running on your screen followed by generated text with increasing diversities.
 
@@ -127,11 +127,11 @@ A few things to mention about the contents of the repository:
 
 > The figure above shows a user running the notebook locally
 
-To help understand what's going on here, in the file [transfer_learn.ipynb](transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with `categorical_crossentropy` and begin by loading our `transfer_weights`. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation. 
+To help understand what's going on here, in the file [transfer_learn.ipynb](transfer_learn.ipynb) we use a Keras sequential model of the LSTM variety, mentioned earlier. We use this variety so that we can include hidden layers of memory to generate more accurate text. Here the maxlen is automatically set to none. The maxlen refers to the maximum length of the sequence and can be none or an integer. We then use the Adam optimizer with `categorical_crossentropy` and begin by loading our `transfer_weights`. We define the sample with a temperature of 0.6. The temperature here is a parameter than can be used in the softmax function which controls the level of newness generated where 1 constricts sampling and leads to less diverse/more repetitive text and 0 has completely diverse text. In this case we are leaning slightly more towards repetition, though, in this particular model, we generate multiple versions of this with a sliding scale of diversities which we can compare to one another and see which works best for us. You'll also see the use of enumerate, which ultimately allows us to create an automatic counter and loop over information. We then train the model and save our weights into `transfer_weights`. Every time you train the model, you will save your learned weights to help improve the accuracy of your text generation.
 
 ![](doc/source/images/architecture2.png)
 
-As you can see in the diagram above, the inputed text is sent through several layers of the LSTM model (forward and backward) and then sent through a dense layer followed by a softmax layer. This considers information and iterates over the data at a character level. This means it considers context such as the previous characters to determine the next characters, ultimately forming words and then sentences to generate an entire review. 
+As you can see in the diagram above, the inputed text is sent through several layers of the LSTM model (forward and backward) and then sent through a dense layer followed by a softmax layer. This considers information and iterates over the data at a character level. This means it considers context such as the previous characters to determine the next characters, ultimately forming words and then sentences to generate an entire review.
 
 ![](doc/source/images/architecture3.png)
 
@@ -148,19 +148,19 @@ Congrats! Now you've learned how to generate text based on the data you've given
 # Links
 
 * [Watson Studio](https://www.ibm.com/cloud/watson-studio)
-* [Jupyter Notebook](http://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
+* [Jupyter Notebook](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
 * [Keras](https://keras.io/): The Python Deep Learning library.
 * [Tensorflow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence.
 
 # Learn more
 
-* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/code/technologies/data-science/)
+* **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/technologies/data-science/)
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://www.ibm.com/cloud/watson-studio)
-* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://console.bluemix.net/catalog/services/apache-spark)
+* **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://cloud.ibm.com/catalog/services/apache-spark)
 
 # License
 
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
