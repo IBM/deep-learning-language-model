@@ -1,4 +1,4 @@
-*Read this in other languages: [中国](README-cn.md).*
+*Read this in other languages: [中国](README-cn.md) - [Español](README-es.md).*
 
 ## Training a Deep Learning Language Model Using Keras and Tensorflow
 

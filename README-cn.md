@@ -1,4 +1,4 @@
-*阅读本文的其他语言版本：[English](README.md)。*
+*阅读本文的其他语言版本：[English](README.md) - [Español](README-es.md)。*
 
 ## 使用 Keras 和 Tensorflow 训练深度学习语言模型
 
