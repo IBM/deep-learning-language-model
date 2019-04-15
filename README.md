@@ -1,6 +1,6 @@
 *Read this in other languages: [中国](README-cn.md) - [Español](README-es.md).*
 
-## Training a Deep Learning Language Model Using Keras and Tensorflow
+# Training a Deep Learning Language Model Using Keras and Tensorflow
 
 This Code Pattern will guide you through installing Keras and Tensorflow, downloading data of Yelp reviews and training a language model using recurrent neural networks, or RNNs, to generate text.
 
@@ -12,7 +12,7 @@ This model is relevant as text generation is increasingly in demand to solve tra
 
 The original Yelp data used in this Code Pattern can be found on [Kaggle](https://www.kaggle.com/c/yelp-recruiting/data) and as a [zip file](yelp_test_set.zip) in this repository.
 
-### But what is Keras and Tensorflow?
+## But what is Keras and Tensorflow?
 
 If you've clicked on this Code Pattern I imagine you range from a deep learning intermediate to a beginner who's interested in learning more. Wherever you are on the spectrum, you probably think machine learning and deep learning are awesome (which I agree with) and have probably been exposed to some examples and terminology. You probably also understand some python and the fact that deep learning is a subset of machine learning (which is a subset of artificial intelligence as a whole). With those assumptions in mind, I can explain that Tensorflow is an open-source software library for machine learning, which allows you to keep track of all of your models and also see them with cool visualizations.
 
@@ -37,7 +37,7 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
 * [Data Science](https://medium.com/ibm-data-science-experience/): Systems and scientific methods to analyze structured and unstructured data in order to extract knowledge and insights.
 * [Python](https://www.python.org/): Python is a programming language that lets you work more quickly and integrate your systems more effectively.
 
-# Prerequisites
+## Prerequisites
 
 1. Ensure [Python](https://www.python.org/) 3.0 or greater is installed.
 
@@ -75,7 +75,7 @@ Keras is a deep learning library that you can use in conjunction with Tensorflow
         pip install h5py
         ```
 
-# Steps
+## Steps
 
 This pattern runs through the steps below. Check out the [notebook](transfer_learn.ipynb) for the code!
 
@@ -84,7 +84,7 @@ This pattern runs through the steps below. Check out the [notebook](transfer_lea
 3. [Train a model](#3-train-a-model)
 4. [Analyze the results](#4-analyze-the-results)
 
-## 1. Download and install TensorFlow and Keras
+### 1. Download and install TensorFlow and Keras
 
 * Install TensorFlow.
 
@@ -96,7 +96,7 @@ This pattern runs through the steps below. Check out the [notebook](transfer_lea
 
 ![](doc/source/images/Screen%20Shot%202017-12-11%20at%202.10.50%20PM.png)
 
-## 2. Clone the repository
+### 2. Clone the repository
 
 * Clone this repository and change into the new directory:
 
@@ -117,7 +117,7 @@ A few things to mention about the contents of the repository:
 
 *A quick note about the `transfer weights` model:* The weights are what allow us to fine tune the model and increase accuracy as our model learns. You won't have to worry about adjusting the weights here as the model will automatically do it when it saves to `transfer_weights` after it runs. Now let's get to training the model.
 
-## 3. Train a model
+### 3. Train a model
 
 * Make sure you collect all of the files that you downloaded into the same folder.
 * Run [`transfer_learn.ipynb`](transfer_learn.ipynb) by running the cell with the code in it.
@@ -135,7 +135,7 @@ As you can see in the diagram above, the inputed text is sent through several la
 
 ![](doc/source/images/architecture3.png)
 
-## 4. Analyze the results
+### 4. Analyze the results
 
 As you can see in the image below, you should expect to see text being generated with different diversities and then saved back into the weights. By this output you can see what different outputs are based on different diversities of text (more diverse vs less/more repetitive).
 
@@ -145,21 +145,21 @@ As you can see in the image below, you should expect to see text being generated
 
 Congrats! Now you've learned how to generate text based on the data you've given it. Now you can challenge yourself by trying out the entire yelp dataset or other text data! You got this!
 
-# Links
+## Links
 
 * [Watson Studio](https://www.ibm.com/cloud/watson-studio)
 * [Jupyter Notebook](https://jupyter.org/): An open source web application that allows you to create and share documents that contain live code, equations, visualizations, and explanatory text.
 * [Keras](https://keras.io/): The Python Deep Learning library.
 * [Tensorflow](https://www.tensorflow.org/): An open-source software library for Machine Intelligence.
 
-# Learn more
+## Learn more
 
 * **Data Analytics Code Patterns**: Enjoyed this Code Pattern? Check out our other [Data Analytics Code Patterns](https://developer.ibm.com/technologies/data-science/)
 * **AI and Data Code Pattern Playlist**: Bookmark our [playlist](https://www.youtube.com/playlist?list=PLzUbsvIyrNfknNewObx5N7uGZ5FKH0Fde) with all of our Code Pattern videos
 * **Watson Studio**: Master the art of data science with IBM's [Watson Studio](https://www.ibm.com/cloud/watson-studio)
 * **Spark on IBM Cloud**: Need a Spark cluster? Create up to 30 Spark executors on IBM Cloud with our [Spark service](https://cloud.ibm.com/catalog/services/apache-spark)
 
-# License
+## License
 
 This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
